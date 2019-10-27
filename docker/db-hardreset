@@ -1,0 +1,7 @@
+#!/bin/bash
+DOCKER_DIR=$(cd `dirname $0` && pwd)
+pushd .
+cd $DOCKER_DIR
+docker-compose rm -s -f db
+docker-compose up -d db
+popd

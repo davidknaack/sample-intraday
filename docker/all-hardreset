@@ -1,0 +1,8 @@
+#!/bin/bash
+DOCKER_DIR=$(cd `dirname $0` && pwd)
+pushd .
+cd $DOCKER_DIR
+# Note that this does not remove pgAdmin settings when using PGADMIN_SETTINGS_DIR
+docker-compose rm -s -f 
+docker-compose up -d 
+popd

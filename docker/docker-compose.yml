@@ -1,0 +1,26 @@
+version: '3'
+services:
+
+  # See .env file for values
+  db:
+    container_name: pgServer
+    image: ${POSTGRES_IMAGE}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+    volumes:
+        - "${POSTGRES_INIT}:/docker-entrypoint-initdb.d"
+
+  # The 'adminer' image can be used for other database server types
+  pgadmin:
+    container_name: pgAdmin
+    image: ${PGADMIN_IMAGE}
+    ports:
+        - "${PGADMIN_LISTEN_PORT}:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL
+      - PGADMIN_DEFAULT_PASSWORD
+    volumes:
+        - "${PGADMIN_SETTINGS_DIR}:/var/lib/pgadmin"
