@@ -4,7 +4,7 @@
    "author": "",
    "dependencies": {
       "ansi-styles": "3.2.1",
-      "axios": ">=0.21.1",
+      "axios": ">=0.21.2",
       "escape-string-regexp": "1.0.5",
       "pg": "7.12.1",
       "supports-color": "5.5.0"
